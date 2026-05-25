@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://crq1rxu8o1r3v"]
+
+[ext_resource type="SpriteFrames" uid="uid://l10lyxfbq3hr" path="res://Assets/PuzzleSprites/DisplayPrepPuzzle/Boxes.tres" id="1_mmgvv"]
+[ext_resource type="Script" uid="uid://dwbhx55vd8ixg" path="res://Scenes/Prep_puzzels/bad_box.gd" id="1_ue3qk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue3qk"]
+size = Vector2(64, 15.375)
+
+[node name="BadBox" type="Area2D" groups=["badBoxes"]]
+script = ExtResource("1_ue3qk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2758621, 0.2758621)
+sprite_frames = ExtResource("1_mmgvv")
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_ue3qk")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://gch5hep43lhr"]
+
+[ext_resource type="Script" uid="uid://mlmaxs5e7p8k" path="res://Scripts/Puzzles/Prep/draggable_item.gd" id="1_yxyae"]
+[ext_resource type="Texture2D" uid="uid://b0ybc748kcmph" path="res://Assets/PuzzleSprites/Coffee_Beans_Puzzle/candy.png" id="2_gu3rq"]
+
+[node name="Candy" type="Area2D" groups=["draggable_item"]]
+script = ExtResource("1_yxyae")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.93891954, 7.1403236)
+rotation = 0.17278759
+scale = Vector2(0.062, 0.065)
+texture = ExtResource("2_gu3rq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-15.738998, 13.632023)
+rotation = 0.17278759
+scale = Vector2(0.665, 0.665)
+polygon = PackedVector2Array(-10, 5, 10, -33, 20, -43, 32, -31, 46, 7, 18, 15)

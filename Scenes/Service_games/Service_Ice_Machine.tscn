@@ -1,0 +1,266 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhkxec6u75xlv"]
+
+[ext_resource type="Script" uid="uid://yt8gpur86e3p" path="res://Scripts/Puzzles/Service/service_ice_machine.gd" id="1_ddxpj"]
+[ext_resource type="Texture2D" uid="uid://t51nmaodts00" path="res://Assets/PuzzleSprites/Ice_Machine_Cubes_Puzzle/cube_outlines_1.png" id="2_waouo"]
+[ext_resource type="Texture2D" uid="uid://c4wktyw01k5p1" path="res://Assets/PuzzleSprites/Ice_Machine_Cubes_Puzzle/ice_box_front_open_transparent.png" id="3_c2fmr"]
+[ext_resource type="Script" uid="uid://cn5cbggbgftxj" path="res://Scenes/Service_games/ice_cube.gd" id="4_c2fmr"]
+[ext_resource type="Texture2D" uid="uid://bvg217vd7ht4o" path="res://Assets/PuzzleSprites/Ice_Machine_Cubes_Puzzle/ice_cube_transparent.png" id="4_q8bvg"]
+[ext_resource type="Texture2D" uid="uid://bp5ek07682ck1" path="res://Assets/PuzzleSprites/Ice_Machine_Cubes_Puzzle/background2.png" id="6_q8bvg"]
+[ext_resource type="Texture2D" uid="uid://31oe5r77o7cg" path="res://Assets/PuzzleSprites/Ice_Machine_Cubes_Puzzle/cube_outlines_2.png" id="7_firbx"]
+[ext_resource type="Texture2D" uid="uid://wg1ct1kkxusl" path="res://Assets/PuzzleSprites/Ice_Machine_Cubes_Puzzle/cube_outlines_3.png" id="8_qvj7o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ecthw"]
+radius = 52.24223
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_waouo"]
+radius = 11.18034
+
+[node name="ServiceIceMachine" type="Node2D" groups=["service_puzzle_root"]]
+script = ExtResource("1_ddxpj")
+
+[node name="time limit" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+offset_left = 991.0
+offset_top = 31.0
+offset_right = 1127.0
+offset_bottom = 62.0
+text = "Back to cafe"
+
+[node name="IceBoxFrontOpenTransparent" type="Sprite2D" parent="."]
+position = Vector2(748, 400)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("3_c2fmr")
+
+[node name="iceCube1" type="Area2D" parent="."]
+position = Vector2(862, 509)
+script = ExtResource("4_c2fmr")
+
+[node name="IceCubeTransparent" type="Sprite2D" parent="iceCube1"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_q8bvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="iceCube1"]
+rotation = 0.7853982
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_ecthw")
+
+[node name="iceCube2" type="Area2D" parent="."]
+position = Vector2(640, 511)
+script = ExtResource("4_c2fmr")
+
+[node name="IceCubeTransparent2" type="Sprite2D" parent="iceCube2"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_q8bvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="iceCube2"]
+rotation = 0.7853982
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_ecthw")
+
+[node name="iceCube3" type="Area2D" parent="."]
+position = Vector2(862, 384)
+script = ExtResource("4_c2fmr")
+
+[node name="IceCubeTransparent3" type="Sprite2D" parent="iceCube3"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_q8bvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="iceCube3"]
+rotation = 0.7853982
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_ecthw")
+
+[node name="iceCube4" type="Area2D" parent="."]
+position = Vector2(750, 384)
+scale = Vector2(0.15, 0.15)
+script = ExtResource("4_c2fmr")
+
+[node name="IceCubeTransparent4" type="Sprite2D" parent="iceCube4"]
+texture = ExtResource("4_q8bvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="iceCube4"]
+rotation = 0.7853982
+scale = Vector2(4.6, 4.6)
+shape = SubResource("CircleShape2D_ecthw")
+
+[node name="iceCube5" type="Area2D" parent="."]
+position = Vector2(644, 384)
+script = ExtResource("4_c2fmr")
+
+[node name="IceCubeTransparent5" type="Sprite2D" parent="iceCube5"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_q8bvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="iceCube5"]
+rotation = 0.7853982
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_ecthw")
+
+[node name="iceCube6" type="Area2D" parent="."]
+position = Vector2(750, 511)
+script = ExtResource("4_c2fmr")
+
+[node name="IceCubeTransparent5" type="Sprite2D" parent="iceCube6"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_q8bvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="iceCube6"]
+rotation = 0.7853982
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_ecthw")
+
+[node name="CubeOutlines1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-200, 0)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_waouo")
+
+[node name="tray5" type="Area2D" parent="CubeOutlines1"]
+position = Vector2(161, -159)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines1/tray5"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray4" type="Area2D" parent="CubeOutlines1"]
+position = Vector2(-140, -160)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines1/tray4"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray3" type="Area2D" parent="CubeOutlines1"]
+position = Vector2(-296.667, 124)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines1/tray3"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray2" type="Area2D" parent="CubeOutlines1"]
+position = Vector2(6.667, 124)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines1/tray2"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray1" type="Area2D" parent="CubeOutlines1"]
+position = Vector2(310, 124)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines1/tray1"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 607.0
+offset_top = 196.0
+offset_right = 911.0
+offset_bottom = 219.0
+text = "Grab the ice cubes and fill the tray"
+
+[node name="showGameTimer" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 53.0
+
+[node name="Background2" type="Sprite2D" parent="."]
+z_index = -5
+texture = ExtResource("6_q8bvg")
+centered = false
+
+[node name="CubeOutlines2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-199, 245)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_firbx")
+
+[node name="tray1" type="Area2D" parent="CubeOutlines2"]
+position = Vector2(306.66666, -110.00001)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines2/tray1"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray2" type="Area2D" parent="CubeOutlines2"]
+position = Vector2(6.6666512, -113.333336)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines2/tray2"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray3" type="Area2D" parent="CubeOutlines2"]
+position = Vector2(-290, -113.333336)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines2/tray3"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray4" type="Area2D" parent="CubeOutlines2"]
+position = Vector2(-290, 83.333)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines2/tray4"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray5" type="Area2D" parent="CubeOutlines2"]
+position = Vector2(6.6666565, 83.333336)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines2/tray5"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray6" type="Area2D" parent="CubeOutlines2"]
+position = Vector2(303.3333, 83.333336)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines2/tray6"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="CubeOutlines3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-189, 498)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_qvj7o")
+
+[node name="tray1" type="Area2D" parent="CubeOutlines3"]
+position = Vector2(298, -218)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines3/tray1"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray2" type="Area2D" parent="CubeOutlines3"]
+position = Vector2(-303.33334, -230)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines3/tray2"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray3" type="Area2D" parent="CubeOutlines3"]
+position = Vector2(-303.3333, 150)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines3/tray3"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray4" type="Area2D" parent="CubeOutlines3"]
+position = Vector2(296.66666, 160)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines3/tray4"]
+shape = SubResource("CircleShape2D_waouo")
+
+[node name="tray5" type="Area2D" parent="CubeOutlines3"]
+position = Vector2(-3.3333333, -33.333332)
+scale = Vector2(3.3333333, 3.3333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CubeOutlines3/tray5"]
+shape = SubResource("CircleShape2D_waouo")
+
+[connection signal="gameWin" from="." to="." method="_on_game_win"]
+[connection signal="timeout" from="time limit" to="." method="_on_time_limit_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtgiudn47ablv"]
+
+[ext_resource type="Script" uid="uid://bbwwmbfhhuxx4" path="res://Scripts/Puzzles/Prep/prep_food_display.gd" id="1_2yp6v"]
+[ext_resource type="Script" uid="uid://ddpe2wdivn3ni" path="res://Scripts/Puzzles/Prep/basket.gd" id="2_dfjfh"]
+[ext_resource type="Texture2D" uid="uid://kgvog2gvk5om" path="res://Assets/PuzzleSprites/DisplayPrepPuzzle/DisplayPrepBackground.png" id="2_xpxlt"]
+[ext_resource type="Texture2D" uid="uid://bkdufpvmxq8p4" path="res://Assets/PuzzleSprites/DisplayPrepPuzzle/CatchingPuzzle_Basket_Draft.png" id="3_xpxlt"]
+[ext_resource type="Script" uid="uid://t3276aong6a0" path="res://Scenes/Prep_puzzels/DisplayPrepLabel.gd" id="5_dois6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dois6"]
+size = Vector2(176, 16)
+
+[node name="PrepFoodDisplay" type="Node2D"]
+script = ExtResource("1_2yp6v")
+needed_boxes = 6
+
+[node name="DisplayPrepBackground" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xpxlt")
+
+[node name="puzzle time limit" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[node name="Button" type="Button" parent="."]
+offset_right = 68.0
+offset_bottom = 31.0
+text = "go back"
+
+[node name="Basket" type="Area2D" parent="."]
+position = Vector2(448, 576)
+script = ExtResource("2_dfjfh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Basket"]
+scale = Vector2(0.19828562, 0.19828562)
+texture = ExtResource("3_xpxlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basket"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_dois6")
+
+[node name="BoxSpawner" type="Timer" parent="."]
+autostart = true
+
+[node name="Boxes" type="Node2D" parent="."]
+
+[node name="BadBoxes" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 400.0
+offset_top = 16.0
+offset_right = 746.0869
+offset_bottom = 56.0
+text = "Use A and D to collect 6 Boxes"
+horizontal_alignment = 1
+script = ExtResource("5_dois6")
+
+[node name="showGameTimer" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 32.0
+offset_right = 70.0
+offset_bottom = 55.0
+
+[node name="BadBoxSpawner" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="WinTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="gameWin" from="." to="." method="_on_game_win"]
+[connection signal="timeout" from="puzzle time limit" to="." method="_on_puzzle_time_limit_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="area_entered" from="Basket" to="." method="_on_Basket_area_shape_entered"]
+[connection signal="timeout" from="BoxSpawner" to="." method="on_box_spawn"]
+[connection signal="timeout" from="BadBoxSpawner" to="." method="on_bad_box_spawn"]
+[connection signal="timeout" from="WinTimer" to="." method="on_win"]

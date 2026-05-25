@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://u327nyiqgkby"]
+
+[ext_resource type="Script" uid="uid://dcxe8agie1gor" path="res://Scripts/Puzzles/Prep/prep_ice_machine.gd" id="1_dw67v"]
+[ext_resource type="Texture2D" uid="uid://d2xqxve5eq8wi" path="res://Assets/PuzzleSprites/Ice_Machine_Lock_Puzzle/ice_box_door_zoom_2.png" id="2_4bjid"]
+[ext_resource type="Texture2D" uid="uid://du4mcfo4yjv1n" path="res://Assets/PuzzleSprites/Ice_Machine_Lock_Puzzle/key.png" id="3_wykx2"]
+[ext_resource type="Texture2D" uid="uid://478bbcwkb2ya" path="res://Assets/PuzzleSprites/Ice_Machine_Lock_Puzzle/pickaxe.png" id="4_o4e4f"]
+[ext_resource type="Script" uid="uid://cj0jmya31pdyl" path="res://Scenes/Prep_puzzels/cursorManager.gd" id="5_wykx2"]
+[ext_resource type="Script" uid="uid://cwk6ckxyswhoy" path="res://Scenes/Prep_puzzels/character_body_2d.gd" id="6_2akws"]
+[ext_resource type="Script" uid="uid://11gamfg74o8g" path="res://Scenes/Prep_puzzels/spawner.gd" id="6_o4e4f"]
+[ext_resource type="Texture2D" uid="uid://bl0616j5i2um8" path="res://Assets/PuzzleSprites/Ice_Machine_Lock_Puzzle/background_ice_machine.png" id="8_2akws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eyde"]
+size = Vector2(798, 798)
+
+[node name="PrepIceMachine" type="Node2D"]
+script = ExtResource("1_dw67v")
+
+[node name="Puzzel time limit" type="Timer" parent="."]
+wait_time = 40.0
+autostart = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1003.0
+offset_top = 54.0
+offset_right = 1107.0
+offset_bottom = 85.0
+text = "Back to Cafe"
+
+[node name="cursorManager" type="Node" parent="."]
+script = ExtResource("5_wykx2")
+
+[node name="selectPickaxe" type="Button" parent="."]
+offset_left = 914.0
+offset_top = 112.0
+offset_right = 1722.0
+offset_bottom = 920.0
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("4_o4e4f")
+
+[node name="selectKey" type="Button" parent="."]
+offset_left = 919.0
+offset_top = 361.0
+offset_right = 1727.0
+offset_bottom = 1169.0
+scale = Vector2(0.25, 0.25)
+pivot_offset = Vector2(0.2, 0)
+icon = ExtResource("3_wykx2")
+
+[node name="spawner" type="Node2D" parent="."]
+script = ExtResource("6_o4e4f")
+point1 = Vector2(230, 151)
+
+[node name="targetSpawn" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_index = -20
+position = Vector2(0, 6)
+input_pickable = true
+script = ExtResource("6_2akws")
+
+[node name="lock sprite" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(350, 310)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4bjid")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(350.5, 310.5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_1eyde")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 152.0
+offset_top = 51.0
+offset_right = 664.0
+offset_bottom = 100.0
+text = "Use the pickaxe to break  break the ice by clicking on the targets,  then use the key to unlock the machine"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Label"]
+z_index = -1
+layout_mode = 0
+offset_right = 509.0
+offset_bottom = 46.0
+color = Color(0.446777, 0.44677705, 0.44677705, 1)
+
+[node name="showGameTimer" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 53.0
+
+[node name="BackgroundIceMachine" type="Sprite2D" parent="."]
+z_index = -26
+texture = ExtResource("8_2akws")
+centered = false
+
+[connection signal="gameWin" from="." to="." method="_on_game_win"]
+[connection signal="timeout" from="Puzzel time limit" to="." method="_on_puzzel_time_limit_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="selectPickaxe" to="cursorManager" method="_on_select_pickaxe_pressed"]
+[connection signal="pressed" from="selectKey" to="cursorManager" method="_on_select_key_pressed"]
+[connection signal="timeout" from="targetSpawn" to="spawner" method="_on_target_spawn_timeout"]
+[connection signal="gameWin" from="CharacterBody2D" to="." method="_on_character_body_2d_game_win"]
+[connection signal="input_event" from="CharacterBody2D" to="CharacterBody2D" method="_on_input_event"]

@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=4 uid="uid://cqg882miv8j2r"]
+
+[ext_resource type="Script" uid="uid://cijo0jyprc8m1" path="res://Scripts/customer.gd" id="1_o7g7w"]
+[ext_resource type="Texture2D" uid="uid://cokwkx6p1121d" path="res://Assets/CustomerSprites/AlienSheet.png" id="2_j21p7"]
+[ext_resource type="Texture2D" uid="uid://dt2oe27cid0ik" path="res://Assets/CustomerSprites/HumanSheet.png" id="3_rje0e"]
+[ext_resource type="Texture2D" uid="uid://sbgqi7d56wmk" path="res://Assets/CustomerSprites/Medium.png" id="3_yd18k"]
+[ext_resource type="Texture2D" uid="uid://dwj8d7f7y5122" path="res://Assets/CustomerSprites/RobotSheet.png" id="4_0hs7r"]
+[ext_resource type="Texture2D" uid="uid://dny3clisj3i0v" path="res://Assets/CustomerSprites/Unhappy.png" id="4_c7i8l"]
+[ext_resource type="TileSet" uid="uid://dxwabylien035" path="res://Assets/orderSprites/OrderTileset.tres" id="5_rje0e"]
+[ext_resource type="Texture2D" uid="uid://5gq62xiwpbm0" path="res://Assets/CustomerSprites/Happy.png" id="6_0hs7r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj036"]
+atlas = ExtResource("2_j21p7")
+region = Rect2(0, 207, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd18k"]
+atlas = ExtResource("3_rje0e")
+region = Rect2(0, 207, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7i8l"]
+atlas = ExtResource("4_0hs7r")
+region = Rect2(0, 207, 193, 207)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kosw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj036")
+}],
+"loop": true,
+"name": &"Alien",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd18k")
+}],
+"loop": true,
+"name": &"Human",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7i8l")
+}],
+"loop": true,
+"name": &"Robot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1r5ol"]
+radius = 47.26521
+
+[node name="Customer" type="CharacterBody2D"]
+script = ExtResource("1_o7g7w")
+mood_icons = Array[Resource]([ExtResource("6_0hs7r"), ExtResource("3_yd18k"), ExtResource("4_c7i8l")])
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_kosw0")
+animation = &"Human"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.98532873, 0.8719845)
+shape = SubResource("CircleShape2D_1r5ol")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+enable_node_path = NodePath("../CollisionShape2D")
+
+[node name="OrderBubble" type="TileMapLayer" parent="."]
+position = Vector2(94, 0)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAD8////AAAAAAAAAAAAAPv/AAACAAAAAAAAAAMAAAACAAgAAAAAAP//AAALAAIAAAAGAP//AAARAAIAAAAGAPv/AAACAAAAAAAGAAMAAAACAAgAAAAKAP//AAAIAAAAAAA=")
+tile_set = ExtResource("5_rje0e")
+
+[node name="Mood" type="Sprite2D" parent="."]
+position = Vector2(-89, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_0hs7r")

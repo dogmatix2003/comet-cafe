@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2qu05aipgaal"]
+
+[ext_resource type="Texture2D" uid="uid://cig0ux2aftfgn" path="res://Assets/PuzzleSprites/Ice_Machine_Lock_Puzzle/target.png" id="1_jkstr"]
+
+[sub_resource type="GDScript" id="GDScript_f2pt1"]
+script/source = "extends Node2D
+
+signal death
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+
+#Interaction manager is used here to help comunication between the target and the scene node
+func _on_character_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && InteractionManager.is_pickaxe == true:
+		InteractionManager.num_dead += 1
+		self.queue_free()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vq20n"]
+radius = 100.0
+
+[node name="ClickableCircle" type="Node2D"]
+script = SubResource("GDScript_f2pt1")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+input_pickable = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_jkstr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_vq20n")
+
+[connection signal="input_event" from="CharacterBody2D" to="." method="_on_character_body_2d_input_event"]

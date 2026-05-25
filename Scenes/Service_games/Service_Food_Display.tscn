@@ -1,0 +1,140 @@
+[gd_scene load_steps=16 format=3 uid="uid://dypu2l4d30q40"]
+
+[ext_resource type="Script" uid="uid://chvm5javjng6c" path="res://Scripts/Puzzles/Service/service_food_display.gd" id="1_egjgi"]
+[ext_resource type="Texture2D" uid="uid://dj3d5tqaisud8" path="res://Assets/PuzzleSprites/DisplayServicePuzzle/FoodDisplayPuzzle_Claw_Draft.png" id="2_1r112"]
+[ext_resource type="Texture2D" uid="uid://cmssdlj13sip2" path="res://Assets/PuzzleSprites/DisplayServicePuzzle/FoodDisplay_Background.png" id="2_m3qcx"]
+[ext_resource type="Script" uid="uid://dbuiaq68813a" path="res://Scripts/Puzzles/Service/crane.gd" id="2_wd8hr"]
+[ext_resource type="Script" uid="uid://cwv3thd8ftjrg" path="res://Scripts/Puzzles/Service/food.gd" id="4_n4aax"]
+[ext_resource type="Texture2D" uid="uid://bdblrbnlotyyq" path="res://Assets/PuzzleSprites/DisplayServicePuzzle/DisplayPuzzle_Cookie_Draft.png" id="5_32l1e"]
+[ext_resource type="Texture2D" uid="uid://ch51ge2wmaj35" path="res://Assets/PuzzleSprites/DisplayServicePuzzle/DisplayPuzzle_Cake_Draft.png" id="6_m3qcx"]
+[ext_resource type="Texture2D" uid="uid://dexuu6jogckgb" path="res://Assets/PuzzleSprites/DisplayServicePuzzle/DisplayPuzzle_Sandwich_Draft.png" id="8_m3qcx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3qcx"]
+atlas = ExtResource("2_1r112")
+region = Rect2(0, 0, 750, 2860)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckns2"]
+atlas = ExtResource("2_1r112")
+region = Rect2(750, 0, 750, 2860)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n4aax"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3qcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckns2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_225yv"]
+size = Vector2(170, 67.32221)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32l1e"]
+size = Vector2(72, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb8sh"]
+size = Vector2(41.418182, 60.35202)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2mib"]
+size = Vector2(72, 72)
+
+[node name="ServiceFoodDisplay" type="Node2D"]
+scale = Vector2(0.99934745, 0.9905934)
+script = ExtResource("1_egjgi")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
+[node name="Button" type="Button" parent="."]
+offset_right = 136.0
+offset_bottom = 31.0
+text = "(service) go back"
+
+[node name="Service_FoodDisplay" type="Sprite2D" parent="."]
+position = Vector2(572.37354, 323.0387)
+scale = Vector2(0.49956566, 0.5)
+texture = ExtResource("2_m3qcx")
+
+[node name="Crane" type="Node2D" parent="."]
+scale = Vector2(0.99855673, 1)
+script = ExtResource("2_wd8hr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Crane"]
+position = Vector2(87.99999, 32.303864)
+scale = Vector2(0.22500001, 0.22499998)
+sprite_frames = SubResource("SpriteFrames_n4aax")
+
+[node name="Area2D" type="Area2D" parent="Crane"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crane/Area2D"]
+position = Vector2(83, 318.33896)
+shape = SubResource("RectangleShape2D_225yv")
+
+[node name="Food1" type="Area2D" parent="."]
+position = Vector2(162.10579, 497.6815)
+script = ExtResource("4_n4aax")
+item_value = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Food1"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_32l1e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Food1"]
+position = Vector2(16, -16.000023)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_32l1e")
+
+[node name="Food2" type="Area2D" parent="."]
+position = Vector2(578.10583, 497.6815)
+scale = Vector2(-1.7383672, -1.193)
+script = ExtResource("4_n4aax")
+item_value = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Food2"]
+position = Vector2(-2.3009949, -3.3529053)
+scale = Vector2(0.9999997, 0.9999996)
+shape = SubResource("RectangleShape2D_yb8sh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Food2"]
+position = Vector2(-9.20404, 0)
+rotation = 3.1415927
+scale = Vector2(0.12, 0.123)
+texture = ExtResource("6_m3qcx")
+
+[node name="Food3" type="Area2D" parent="."]
+position = Vector2(1026.1057, 497.6815)
+script = ExtResource("4_n4aax")
+item_value = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Food3"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_o2mib")
+
+[node name="Sprite2D" type="Sprite2D" parent="Food3"]
+rotation = -5.052728
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("8_m3qcx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 745.48645
+offset_top = 28.265886
+offset_right = 1120.4866
+offset_bottom = 51.265892
+text = "Press E when the crane is above the correct item"
+
+[node name="showGameTimer" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 53.0
+
+[connection signal="gameWin" from="." to="." method="_on_game_win"]
+[connection signal="timeout" from="Timer" to="." method="_on_time_limit_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

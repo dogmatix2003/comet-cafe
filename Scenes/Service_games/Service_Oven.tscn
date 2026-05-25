@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://b886hmnd3pod6"]
+
+[ext_resource type="Script" uid="uid://chfov10eo6sfu" path="res://Scripts/Puzzles/Service/service_oven.gd" id="1_fsalf"]
+[ext_resource type="Texture2D" uid="uid://dlheuj3abr2a" path="res://Assets/PuzzleSprites/OvenServicePuzzle/Meter.png" id="2_44672"]
+[ext_resource type="Texture2D" uid="uid://bfim5ppkkepdm" path="res://Assets/PuzzleSprites/OvenServicePuzzle/OvenServiceBackground.png" id="2_xghu8"]
+[ext_resource type="Texture2D" uid="uid://152buwdopufa" path="res://Assets/PuzzleSprites/OvenServicePuzzle/Pin.png" id="3_3ator"]
+[ext_resource type="Texture2D" uid="uid://cmy57gxef6k85" path="res://Assets/PuzzleSprites/OvenServicePuzzle/Button.png" id="4_3ator"]
+
+[node name="ServiceOven" type="Node2D"]
+script = ExtResource("1_fsalf")
+
+[node name="OvenServiceBackground" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xghu8")
+
+[node name="time limit" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="greenZoneTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Button" type="Button" parent="."]
+z_index = 10
+offset_left = 984.0
+offset_top = 24.0
+offset_right = 1120.0
+offset_bottom = 55.0
+text = "back to cafe"
+
+[node name="Meter" type="Sprite2D" parent="."]
+position = Vector2(476, 277)
+texture = ExtResource("2_44672")
+
+[node name="Pin" type="Sprite2D" parent="."]
+position = Vector2(473, 404)
+rotation = 1.813397
+texture = ExtResource("3_3ator")
+offset = Vector2(0, -95)
+
+[node name="addHeatButton" type="Button" parent="."]
+offset_left = 926.0
+offset_top = 338.0
+offset_right = 1466.0
+offset_bottom = 687.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("4_3ator")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 312.0
+offset_top = 560.0
+offset_right = 682.0
+offset_bottom = 583.0
+text = "Keep the pin in  the green by clicking the button"
+
+[node name="showGameTimer" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 60.0
+offset_bottom = 53.0
+
+[connection signal="gameWin" from="." to="." method="_on_game_win"]
+[connection signal="timeout" from="time limit" to="." method="_on_time_limit_timeout"]
+[connection signal="timeout" from="greenZoneTimer" to="." method="_on_green_zone_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="addHeatButton" to="." method="_on_add_heat_button_button_down"]
+[connection signal="button_up" from="addHeatButton" to="." method="_on_add_heat_button_button_up"]
+[connection signal="pressed" from="addHeatButton" to="." method="_on_add_heat_button_pressed"]
+[connection signal="pressed" from="addHeatButton" to="." method="_on_button_2_pressed"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://drhfww65812ci"]
+
+[ext_resource type="Script" uid="uid://mlmaxs5e7p8k" path="res://Scripts/Puzzles/Prep/draggable_item.gd" id="1_6ejkj"]
+[ext_resource type="Texture2D" uid="uid://cfwbfpnaq6onl" path="res://Assets/PuzzleSprites/Coffee_Beans_Puzzle/coffee_bean_green.png" id="2_skp3d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h6bxy"]
+radius = 15.050781
+height = 47.618713
+
+[node name="Green Bean" type="Area2D" groups=["draggable_item"]]
+script = ExtResource("1_6ejkj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.970337, 0.9848633)
+rotation = 1.8936822
+scale = Vector2(0.18822116, 0.19594955)
+skew = -0.027925268
+texture = ExtResource("2_skp3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.435791, 0.13851929)
+rotation = -2.162463
+scale = Vector2(1.05, 1.05)
+shape = SubResource("CapsuleShape2D_h6bxy")
+debug_color = Color(2.695322e-06, 0.62936753, 0.46701455, 0.41568628)

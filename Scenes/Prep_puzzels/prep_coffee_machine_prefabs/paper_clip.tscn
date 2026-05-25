@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://crts41mh7ai1h"]
+
+[ext_resource type="Script" uid="uid://mlmaxs5e7p8k" path="res://Scripts/Puzzles/Prep/draggable_item.gd" id="1_kut50"]
+[ext_resource type="Texture2D" uid="uid://bhmb2qk8cuydv" path="res://Assets/PuzzleSprites/Coffee_Beans_Puzzle/paper_clip.png" id="2_j4bc6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e2esq"]
+radius = 10.495728
+height = 73.089584
+
+[node name="Paper Clip" type="Area2D" groups=["draggable_item"]]
+script = ExtResource("1_kut50")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.2543716, 19.254393)
+scale = Vector2(0.09186405, 0.09563599)
+texture = ExtResource("2_j4bc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5087433, 18.999962)
+rotation = -2.851868
+scale = Vector2(1.05, 1.05)
+shape = SubResource("CapsuleShape2D_e2esq")
+debug_color = Color(2.695322e-06, 0.62936753, 0.46701455, 0.41568628)
