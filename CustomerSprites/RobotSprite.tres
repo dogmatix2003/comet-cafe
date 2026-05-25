@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://b4dwug8rrhbld"]
+
+[ext_resource type="Texture2D" uid="uid://dwj8d7f7y5122" path="res://Assets/CustomerSprites/RobotSheet.png" id="1_5acly"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pltej"]
+atlas = ExtResource("1_5acly")
+region = Rect2(0, 0, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gfi1"]
+atlas = ExtResource("1_5acly")
+region = Rect2(0, 207, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p50od"]
+atlas = ExtResource("1_5acly")
+region = Rect2(0, 414, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x0tr"]
+atlas = ExtResource("1_5acly")
+region = Rect2(0, 621, 193, 207)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pltej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gfi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p50od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x0tr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

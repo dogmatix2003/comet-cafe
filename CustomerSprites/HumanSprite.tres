@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://df1h7qjmd6ljs"]
+
+[ext_resource type="Texture2D" uid="uid://dt2oe27cid0ik" path="res://Assets/CustomerSprites/HumanSheet.png" id="1_5j04u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ym27"]
+atlas = ExtResource("1_5j04u")
+region = Rect2(0, 0, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff2t2"]
+atlas = ExtResource("1_5j04u")
+region = Rect2(0, 207, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38sd6"]
+atlas = ExtResource("1_5j04u")
+region = Rect2(0, 414, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj2vo"]
+atlas = ExtResource("1_5j04u")
+region = Rect2(0, 621, 193, 207)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ym27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff2t2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38sd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj2vo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

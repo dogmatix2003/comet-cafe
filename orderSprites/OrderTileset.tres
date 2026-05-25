@@ -1,0 +1,32 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dxwabylien035"]
+
+[ext_resource type="Texture2D" uid="uid://bdeeamofwciy1" path="res://Assets/orderSprites/orderTileset.png" id="1_53o32"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ipij0"]
+texture = ExtResource("1_53o32")
+0:0/size_in_atlas = Vector2i(2, 10)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+8:0/size_in_atlas = Vector2i(2, 10)
+8:0/0 = 0
+2:0/size_in_atlas = Vector2i(6, 2)
+2:0/0 = 0
+2:8/size_in_atlas = Vector2i(6, 2)
+2:8/0 = 0
+11:2/size_in_atlas = Vector2i(6, 6)
+11:2/0 = 0
+17:2/size_in_atlas = Vector2i(6, 6)
+17:2/0 = 0
+23:2/size_in_atlas = Vector2i(6, 6)
+23:2/0 = 0
+2:2/size_in_atlas = Vector2i(6, 6)
+2:2/0 = 0
+11:8/size_in_atlas = Vector2i(6, 6)
+11:8/0 = 0
+17:8/size_in_atlas = Vector2i(6, 6)
+17:8/0 = 0
+23:8/size_in_atlas = Vector2i(6, 6)
+23:8/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_ipij0")

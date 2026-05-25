@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dhrfwygnvv5if"]
+
+[ext_resource type="Texture2D" uid="uid://cokwkx6p1121d" path="res://Assets/CustomerSprites/AlienSheet.png" id="1_vjera"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4n7w"]
+atlas = ExtResource("1_vjera")
+region = Rect2(0, 0, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8apq"]
+atlas = ExtResource("1_vjera")
+region = Rect2(0, 207, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdcxb"]
+atlas = ExtResource("1_vjera")
+region = Rect2(0, 414, 193, 207)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn65n"]
+atlas = ExtResource("1_vjera")
+region = Rect2(0, 621, 193, 207)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4n7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8apq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdcxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn65n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
