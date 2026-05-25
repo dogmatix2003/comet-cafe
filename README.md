@@ -4,6 +4,8 @@ A game design project for CSC 468B
 
 Created by: AJ, Carol, Connor, Jerome, and Robert
 
+This was originally a private git repository, so I had to copy it over, and as such, not all of the files are in the right places. Regardless, this is all of the assets, scripts, etc from that project.
+
 ## Dependencies
 - Godot 4.5.1 (Can be installed through Steam, or downloaded from https://godotengine.org/download/)
 - Git and [Git LFS](https://git-lfs.com/)
