@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://l10lyxfbq3hr"]
+
+[ext_resource type="Texture2D" uid="uid://ddxqxya6nsa0t" path="res://Assets/PuzzleSprites/DisplayPrepPuzzle/CatchingPuzzle_Supplies_Draft.png" id="1_t8wip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7ck"]
+atlas = ExtResource("1_t8wip")
+region = Rect2(0, 0, 557, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sd1j"]
+atlas = ExtResource("1_t8wip")
+region = Rect2(557, 0, 557, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4ijh"]
+atlas = ExtResource("1_t8wip")
+region = Rect2(1114, 0, 557, 464)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sd1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4ijh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
